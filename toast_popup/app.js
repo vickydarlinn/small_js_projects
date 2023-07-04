@@ -8,12 +8,16 @@ const outputEl = document.querySelector(".output");
 const outputText = document.querySelector(".outputPara");
 const closeEl = document.querySelector(".close");
 
-toastBtn.addEventListener("click", setInterval(showToast, 3000));
+toastBtn.addEventListener("click", function () {
+  showToast();
+  setTimeout(function () {
+    outputEl.style.display = "none";
+  }, durationEl.value * 1000);
+});
 function showToast() {
   const horizontalPoint = horizontalEl.value;
   const verticalPoint = verticalEl.value;
   const messageType = typeEl.value;
-  console.log(messageType);
   outputEl.style.top = "initial";
   outputEl.style.left = "initial";
   outputEl.style.right = "initial";
@@ -47,8 +51,3 @@ function showToast() {
 closeEl.addEventListener("click", function () {
   outputEl.style.display = "none";
 });
-// console.log(horizontalEl.value);
-// console.log(verticalEl.value);
-// console.log(typeEl.value);
-// console.log(messageEl.value);
-// console.log(durationEl.value);
